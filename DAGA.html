@@ -1,0 +1,426 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DAGA | Discover Around Go Again</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <a href="#home" class="logo">
+            <span class="logo-icon">D</span>
+            <span>
+                <strong>DAGA</strong>
+                <small>Discover Around Go Again</small>
+            </span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle"
+                aria-label="Toggle navigation">☰</button>
+
+        <nav id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#destinations">Explore Places</a>
+            <a href="#planner">Plan a Trip</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#planner" class="nav-button">Start Exploring ↗</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <p class="eyebrow">ROOTED IN DAKSHINA KANNADA</p>
+
+                <h1>Find a place.<br>
+                    <span>Feel its story.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Discover meaningful local experiences, explore hidden
+                    treasures and connect with local businesses.
+                    Your interests, your budget, your journey.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#planner" class="button button-light">
+                        Plan My Trip ↗
+                    </a>
+                    <a href="#destinations" class="hero-link">
+                        Explore Local Places ↓
+                    </a>
+                </div>
+
+                <p class="hero-note">
+                    ✦ Discover local. Travel meaningful.
+                </p>
+            </div>
+        </section>
+
+        <!-- Highlights -->
+        <section class="highlights">
+            <div>
+                <span class="highlight-icon">⌖</span>
+                <div>
+                    <h3>Locally Rooted</h3>
+                    <p>Explore Dakshina Kannada</p>
+                </div>
+            </div>
+
+            <div>
+                <span class="highlight-icon">✳</span>
+                <div>
+                    <h3>Made for You</h3>
+                    <p>Trips based on your interests</p>
+                </div>
+            </div>
+
+            <div>
+                <span class="highlight-icon">♡</span>
+                <div>
+                    <h3>Support Local</h3>
+                    <p>Discover local businesses</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Destinations -->
+        <section class="section" id="destinations">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow dark-eyebrow">EXPLORE YOUR REGION</p>
+                    <h2>Discover places<br>
+                        <span>worth remembering.</span>
+                    </h2>
+                </div>
+
+                <p class="section-description">
+                    From peaceful coastal escapes to cultural and
+                    nature destinations, discover the beauty of
+                    Dakshina Kannada.
+                </p>
+            </div>
+
+            <!-- Search and Filters -->
+            <div class="filter-row">
+                <button class="filter active" data-filter="all">
+                    All Places
+                </button>
+                <button class="filter" data-filter="temple">
+                    Temples & Heritage
+                </button>
+                <button class="filter" data-filter="coast">
+                    Coastal
+                </button>
+                <button class="filter" data-filter="nature">
+                    Nature
+                </button>
+
+                <input type="search" id="placeSearch"
+                       placeholder="Search places...">
+            </div>
+
+            <div class="destination-grid" id="destinationGrid">
+
+                <article class="place-card" data-category="temple"
+                         data-name="Kukke Subramanya">
+                    <div class="place-image kukke">
+                        <span>TEMPLE & HERITAGE</span>
+                    </div>
+                    <div class="place-content">
+                        <p class="location">SUBRAMANYA</p>
+                        <h3>Kukke Subramanya</h3>
+                        <p>
+                            A renowned pilgrimage destination surrounded
+                            by the Western Ghats.
+                        </p>
+                        <button class="explore-btn"
+                                data-place="Kukke Subramanya">
+                            Explore Place ↗
+                        </button>
+                    </div>
+                </article>
+
+                <article class="place-card" data-category="temple"
+                         data-name="Dharmasthala">
+                    <div class="place-image dharmasthala">
+                        <span>CULTURE & FAITH</span>
+                    </div>
+                    <div class="place-content">
+                        <p class="location">BELTHANGADY TALUK</p>
+                        <h3>Dharmasthala</h3>
+                        <p>
+                            A well-known pilgrimage centre with a
+                            rich tradition of hospitality.
+                        </p>
+                        <button class="explore-btn"
+                                data-place="Dharmasthala">
+                            Explore Place ↗
+                        </button>
+                    </div>
+                </article>
+
+                <article class="place-card" data-category="coast"
+                         data-name="Panambur Beach">
+                    <div class="place-image panambur">
+                        <span>COASTAL ESCAPE</span>
+                    </div>
+                    <div class="place-content">
+                        <p class="location">MANGALURU</p>
+                        <h3>Panambur Beach</h3>
+                        <p>
+                            A popular beach known for its broad
+                            shoreline and sunset views.
+                        </p>
+                        <button class="explore-btn"
+                                data-place="Panambur Beach">
+                            Explore Place ↗
+                        </button>
+                    </div>
+                </article>
+
+                <article class="place-card" data-category="nature"
+                         data-name="Pilikula Nisargadhama">
+                    <div class="place-image pilikula">
+                        <span>NATURE & LEARNING</span>
+                    </div>
+                    <div class="place-content">
+                        <p class="location">VAMANJOOR, MANGALURU</p>
+                        <h3>Pilikula Nisargadhama</h3>
+                        <p>
+                            A nature and heritage destination with
+                            attractions for a family outing.
+                        </p>
+                        <button class="explore-btn"
+                                data-place="Pilikula Nisargadhama">
+                            Explore Place ↗
+                        </button>
+                    </div>
+                </article>
+
+                <article class="place-card" data-category="temple"
+                         data-name="Kateel">
+                    <div class="place-image kateel">
+                        <span>TEMPLE BY THE RIVER</span>
+                    </div>
+                    <div class="place-content">
+                        <p class="location">NEAR MANGALURU</p>
+                        <h3>Kateel</h3>
+                        <p>
+                            A prominent temple destination beside
+                            the Nandini River.
+                        </p>
+                        <button class="explore-btn" data-place="Kateel">
+                            Explore Place ↗
+                        </button>
+                    </div>
+                </article>
+
+                <article class="place-card" data-category="coast"
+                         data-name="Tannirbhavi Beach">
+                    <div class="place-image tannirbhavi">
+                        <span>COASTAL RETREAT</span>
+                    </div>
+                    <div class="place-content">
+                        <p class="location">MANGALURU</p>
+                        <h3>Tannirbhavi Beach</h3>
+                        <p>
+                            A coastal spot for a relaxing walk
+                            and an evening by the sea.
+                        </p>
+                        <button class="explore-btn"
+                                data-place="Tannirbhavi Beach">
+                            Explore Place ↗
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+
+            <p id="emptyState" class="empty-state" hidden>
+                No places found. Try a different search.
+            </p>
+
+            <p class="disclaimer">
+                This is a project prototype. Check local timings,
+                access and travel information before visiting.
+            </p>
+        </section>
+
+        <!-- Trip Planner -->
+        <section class="planner-section" id="planner">
+            <div class="planner-info">
+                <p class="eyebrow dark-eyebrow">YOUR TRIP, YOUR WAY</p>
+
+                <h2>Let's plan something<br>
+                    <span>that feels like you.</span>
+                </h2>
+
+                <p>
+                    Tell us what you enjoy, how much you want to spend
+                    and how much time you have. DAGA will suggest
+                    a starting point for your local journey.
+                </p>
+
+                <div class="planner-point">
+                    <span>01</span>
+                    <div>
+                        <h3>Choose your interests</h3>
+                        <p>Nature, temples, heritage or the coast.</p>
+                    </div>
+                </div>
+
+                <div class="planner-point">
+                    <span>02</span>
+                    <div>
+                        <h3>Set your budget and time</h3>
+                        <p>Plan around your available resources.</p>
+                    </div>
+                </div>
+
+                <div class="planner-point">
+                    <span>03</span>
+                    <div>
+                        <h3>Discover local options</h3>
+                        <p>Explore destinations and local experiences.</p>
+                    </div>
+                </div>
+            </div>
+
+            <form id="tripForm" class="planner-form">
+                <p class="form-label">QUICK TRIP PLANNER</p>
+                <h3>What sounds good?</h3>
+
+                <label for="interest">I'm interested in</label>
+                <select id="interest">
+                    <option value="all">A mix of experiences</option>
+                    <option value="temple">Temples & heritage</option>
+                    <option value="coast">Beaches & coast</option>
+                    <option value="nature">Nature & outdoors</option>
+                </select>
+
+                <div class="form-row">
+                    <div>
+                        <label for="budget">Budget per person</label>
+                        <select id="budget">
+                            <option value="low">Under ₹500</option>
+                            <option value="medium">₹500–₹1,500</option>
+                            <option value="high">₹1,500+</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="duration">Available time</label>
+                        <select id="duration">
+                            <option value="hours">A few hours</option>
+                            <option value="day">One day</option>
+                            <option value="weekend">Weekend</option>
+                        </select>
+                    </div>
+                </div>
+
+                <label for="groupSize">Group size</label>
+                <select id="groupSize">
+                    <option value="1">Just me</option>
+                    <option value="2">2 people</option>
+                    <option value="3-5" selected>3–5 people</option>
+                    <option value="6+">6 or more people</option>
+                </select>
+
+                <button type="submit" class="button button-dark full-button">
+                    Find My Starting Point ↗
+                </button>
+
+                <p class="form-note">
+                    Sample recommendations only. Live prices and bookings
+                    are not connected in this prototype.
+                </p>
+
+                <div id="plannerResult" class="planner-result" hidden></div>
+            </form>
+        </section>
+
+        <!-- How It Works -->
+        <section class="section" id="how-it-works">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow dark-eyebrow">SIMPLE BY DESIGN</p>
+                    <h2>From "where next?"<br>
+                        <span>to a plan that fits.</span>
+                    </h2>
+                </div>
+                <p class="section-description">
+                    DAGA aims to simplify local travel and help
+                    small businesses reach more visitors.
+                </p>
+            </div>
+
+            <div class="steps-grid">
+                <article class="step-card">
+                    <span class="step-number">01</span>
+                    <div class="step-icon">⌕</div>
+                    <h3>Share Preferences</h3>
+                    <p>
+                        Enter your interests, budget, time and
+                        group size.
+                    </p>
+                </article>
+
+                <article class="step-card">
+                    <span class="step-number">02</span>
+                    <div class="step-icon">✳</div>
+                    <h3>Discover Places</h3>
+                    <p>
+                        Explore options that may suit your
+                        preferences and trip.
+                    </p>
+                </article>
+
+                <article class="step-card">
+                    <span class="step-number">03</span>
+                    <div class="step-icon">♡</div>
+                    <h3>Connect Locally</h3>
+                    <p>
+                        The planned platform will connect tourists
+                        with local service providers.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Closing Banner -->
+        <section class="closing-banner">
+            <div>
+                <p class="eyebrow">SMALL PLACES. BIG MEMORIES.</p>
+                <h2>Discover local.<br>
+                    <span>Travel meaningful.</span>
+                </h2>
+            </div>
+            <a href="#planner" class="button button-light">
+                Plan Your Trip ↗
+            </a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <a href="#home" class="footer-logo">DAGA</a>
+        <p>Discover Around Go Again</p>
+        <p>SMART LOCAL Tourism Business Portal</p>
+        <p class="footer-note">Student project prototype</p>
+    </footer>
+
+    <div id="toast" class="toast" role="status"></div>
+
+    <script src="script.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
