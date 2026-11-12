@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Owner Login | DAGA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="business-login-container">
+        <div class="business-login-box">
+
+            <h1>DAGA</h1>
+            <h2>Business Owner Login</h2>
+            <p>Manage your local tourism business with us.</p>
+
+            <form id="businessLoginForm">
+
+                <label for="businessEmail">Business Email</label>
+                <input
+                    type="email"
+                    id="businessEmail"
+                    placeholder="Enter your business email"
+                    required
+                >
+
+                <label for="businessPassword">Password</label>
+                <input
+                    type="password"
+                    id="businessPassword"
+                    placeholder="Enter your password"
+                    required
+                >
+
+                <button type="submit">Login</button>
+
+            </form>
+
+            <p id="businessLoginMessage"></p>
+
+            <p class="business-register-link">
+                New to DAGA?
+                <a href="owner-signup.html">Register your business</a>
+            </p>
+
+            <a href="home.html" class="back-home-link">← Back to Home</a>
+
+        </div>
+    </div>
+
+    <script src="business-login.js"></script>
+</body>
+</html>

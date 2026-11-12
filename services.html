@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAGA | Local Services</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="brand">
+            <h1>DAGA</h1>
+            <p>Discover Around Go Again</p>
+        </div>
+
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="destinations.html">Destinations</a>
+            <a href="services.html" class="active">Services</a>
+            <a href="home.html#about">About</a>
+            <a href="my-trips.html">My Trips</a>
+            <a href="profile.html">Profile</a>
+            <a href="bookings.html">Bookings</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="#" class="profile-btn">My Profile</a>
+            <a href="index.html" class="logout-btn">Logout</a>
+        </div>
+    </header>
+
+
+    <section class="services-hero">
+        <h2>Discover Local Experiences</h2>
+        <p>Connect with local businesses and experience the true beauty of the region.</p>
+    </section>
+
+
+    <section class="service-filter">
+
+        <input type="text" id="serviceSearch"
+               placeholder="Search local services...">
+
+        <select id="serviceCategory">
+            <option value="all">All Categories</option>
+            <option value="homestay">Homestays</option>
+            <option value="guide">Local Guides</option>
+            <option value="food">Local Food</option>
+            <option value="handicraft">Handicrafts</option>
+            <option value="adventure">Adventure</option>
+            <option value="culture">Cultural Experiences</option>
+        </select>
+
+        <button type="button" onclick="filterServices()">Search</button>
+
+    </section>
+
+
+    <section class="services-section">
+
+        <div class="services-grid" id="servicesGrid">
+
+            <div class="service-card" data-category="homestay">
+                <img src="https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?w=600" alt="Homestay">
+                <div class="service-info">
+                    <span>Homestay</span>
+                    <h3>Traditional Nature Homestay</h3>
+                    <p>Experience peaceful stays surrounded by nature and local hospitality.</p>
+                    <p class="service-price">Starting from ₹1,500 / night</p>
+                    <button onclick="viewService('Traditional Nature Homestay')">View Details</button>
+                </div>
+            </div>
+
+
+            <div class="service-card" data-category="guide">
+                <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=600" alt="Tour guide">
+                <div class="service-info">
+                    <span>Local Guide</span>
+                    <h3>Local Heritage Guide</h3>
+                    <p>Explore local history, traditions and lesser-known attractions with a guide.</p>
+                    <p class="service-price">Starting from ₹800 / trip</p>
+                    <button onclick="viewService('Local Heritage Guide')">View Details</button>
+                </div>
+            </div>
+
+
+            <div class="service-card" data-category="food">
+                <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600" alt="Local food">
+                <div class="service-info">
+                    <span>Local Food</span>
+                    <h3>Traditional Coastal Cuisine</h3>
+                    <p>Taste authentic regional dishes prepared using traditional recipes.</p>
+                    <p class="service-price">Starting from ₹300 / person</p>
+                    <button onclick="viewService('Traditional Coastal Cuisine')">View Details</button>
+                </div>
+            </div>
+
+
+            <div class="service-card" data-category="handicraft">
+                <img src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=600" alt="Handicrafts">
+                <div class="service-info">
+                    <span>Handicrafts</span>
+                    <h3>Local Handcrafted Products</h3>
+                    <p>Discover handmade crafts and products created by local artisans.</p>
+                    <p class="service-price">Prices vary by product</p>
+                    <button onclick="viewService('Local Handcrafted Products')">View Details</button>
+                </div>
+            </div>
+
+
+            <div class="service-card" data-category="adventure">
+                <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=600" alt="Adventure">
+                <div class="service-info">
+                    <span>Adventure</span>
+                    <h3>Nature Trekking Experience</h3>
+                    <p>Enjoy outdoor exploration and trekking with local activity organizers.</p>
+                    <p class="service-price">Starting from ₹1,000 / person</p>
+                    <button onclick="viewService('Nature Trekking Experience')">View Details</button>
+                </div>
+            </div>
+
+
+            <div class="service-card" data-category="culture">
+                <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600" alt="Cultural experience">
+                <div class="service-info">
+                    <span>Cultural Experience</span>
+                    <h3>Traditional Cultural Activities</h3>
+                    <p>Experience local art, traditions, festivals and cultural performances.</p>
+                    <p class="service-price">Starting from ₹500 / person</p>
+                    <button onclick="viewService('Traditional Cultural Activities')">View Details</button>
+                </div>
+            </div>
+
+        </div>
+
+        <p id="noServices" class="no-services">
+            No services found.
+        </p>
+
+    </section>
+
+
+    <footer>
+        <h2>DAGA</h2>
+        <p>Discover Around Go Again</p>
+        <p>Explore Local. Travel Better.</p>
+        <p class="copyright">© 2026 DAGA. All Rights Reserved.</p>
+    </footer>
+
+
+    <script src="services.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAGA | Smart Trip Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="brand">
+            <h1>DAGA</h1>
+            <p>Discover Around Go Again</p>
+        </div>
+
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="destinations.html">Destinations</a>
+            <a href="services.html">Services</a>
+            <a href="planner.html" class="active">Trip Planner</a>
+            <a href="my-trips.html">My Trips</a>
+            <a href="profile.html">Profile</a>
+            <a href="bookings.html">Bookings</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="#" class="profile-btn">My Profile</a>
+            <a href="index.html" class="logout-btn">Logout</a>
+        </div>
+    </header>
+
+
+    <!-- Planner Heading -->
+    <section class="planner-hero">
+        <h2>Plan Your Perfect Local Trip</h2>
+        <p>Tell us what you love. DAGA will suggest a trip that matches your preferences.</p>
+    </section>
+
+
+    <!-- Planner Form -->
+    <section class="planner-form-section">
+
+        <div class="planner-form">
+
+            <h2>Let's Plan Your Journey!</h2>
+            <p>Enter your travel preferences below.</p>
+
+            <form id="tripForm">
+
+                <label for="location">Preferred Location</label>
+                <select id="location" required>
+                    <option value="">Choose a location</option>
+                    <option value="dakshina">Dakshina Kannada</option>
+                    <option value="udupi">Udupi</option>
+                    <option value="kodagu">Kodagu</option>
+                </select>
+
+                <label for="interest">Your Interest</label>
+                <select id="interest" required>
+                    <option value="">Choose your interest</option>
+                    <option value="nature">Nature and Mountains</option>
+                    <option value="beach">Beaches and Coastal Activities</option>
+                    <option value="religious">Temples and Spiritual Places</option>
+                    <option value="adventure">Adventure and Trekking</option>
+                    <option value="culture">Culture and Local Experiences</option>
+                </select>
+
+                <label for="budget">Total Budget (₹)</label>
+                <input type="number" id="budget"
+                       placeholder="Example: 5000" min="500" required>
+
+                <label for="days">Number of Days</label>
+                <select id="days" required>
+                    <option value="">Select travel duration</option>
+                    <option value="1">1 Day</option>
+                    <option value="2">2 Days</option>
+                    <option value="3">3 Days</option>
+                    <option value="4">4 Days</option>
+                    <option value="5">5 Days</option>
+                </select>
+
+                <label for="people">Number of Travellers</label>
+                <input type="number" id="people"
+                       min="1" max="20" value="2" required>
+
+                <button type="submit">Generate My Trip</button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- Generated Itinerary -->
+    <section class="trip-results" id="tripResults">
+
+        <h2>Your Suggested Trip</h2>
+
+        <div id="tripOutput"></div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <h2>DAGA</h2>
+        <p>Discover Around Go Again</p>
+        <p>Explore Local. Travel Better.</p>
+        <p class="copyright">© 2026 DAGA. All Rights Reserved.</p>
+    </footer>
+
+
+    <script src="planner.js"></script>
+
+</body>
+</html>

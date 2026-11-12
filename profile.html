@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAGA | My Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="brand">
+            <h1>DAGA</h1>
+            <p>Discover Around Go Again</p>
+        </div>
+
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="destinations.html">Destinations</a>
+            <a href="services.html">Services</a>
+            <a href="planner.html">Trip Planner</a>
+            <a href="my-trips.html">My Trips</a>
+            <a href="profile.html" class="active">Profile</a>
+            <a href="bookings.html">Bookings</a>
+        </nav>
+    </header>
+
+    <section class="profile-hero">
+        <h2>My Profile</h2>
+        <p>Manage your personal information and travel preferences.</p>
+    </section>
+
+    <section class="profile-section">
+        <div class="profile-card">
+            <div class="profile-icon">👤</div>
+            <h2>Personal Information</h2>
+            <p class="profile-description">Update your details below.</p>
+
+            <form id="profileForm">
+
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName"
+                       placeholder="Enter your full name" required>
+
+                <label for="profileEmail">Email Address</label>
+                <input type="email" id="profileEmail"
+                       placeholder="Enter your email" required>
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone"
+                       placeholder="Enter your phone number">
+
+                <label for="homeLocation">Home Location</label>
+                <input type="text" id="homeLocation"
+                       placeholder="Enter your city">
+
+                <label for="travelPreference">Preferred Travel Interest</label>
+                <select id="travelPreference">
+                    <option value="">Select your preference</option>
+                    <option value="Nature">Nature</option>
+                    <option value="Beaches">Beaches</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Culture">Culture</option>
+                    <option value="Religious">Religious Places</option>
+                    <option value="Food">Local Food</option>
+                </select>
+
+                <button type="submit">Save Profile</button>
+
+                <p id="profileMessage"></p>
+
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <h2>DAGA</h2>
+        <p>Explore Local. Travel Better.</p>
+        <p class="copyright">© 2026 DAGA. All rights reserved.</p>
+    </footer>
+
+    <script src="profile.js"></script>
+</body>
+</html>

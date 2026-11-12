@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAGA | Destination Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="brand">
+            <h1>DAGA</h1>
+            <p>Discover Around Go Again</p>
+        </div>
+
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="destinations.html" class="active">Destinations</a>
+            <a href="home.html#services">Services</a>
+            <a href="home.html#about">About</a>
+            <a href="profile.html">Profile</a>
+            <a href="bookings.html">Bookings</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="#" class="profile-btn">My Profile</a>
+            <a href="index.html" class="logout-btn">Logout</a>
+        </div>
+    </header>
+
+
+    <!-- Destination Banner -->
+    <section class="details-banner" id="detailsBanner">
+        <div>
+            <span id="placeCategory">Destination</span>
+            <h2 id="placeName">Destination Name</h2>
+            <p id="placeLocation">Location</p>
+        </div>
+    </section>
+
+
+    <!-- Destination Information -->
+    <section class="details-container">
+
+        <div class="details-main">
+
+            <h2>About This Destination</h2>
+
+            <p id="placeDescription">
+                Discover this beautiful destination and enjoy its
+                unique local experiences.
+            </p>
+
+            <h2>Things To Do</h2>
+
+            <ul id="activitiesList">
+                <li>Explore the surroundings</li>
+                <li>Enjoy local experiences</li>
+                <li>Capture beautiful memories</li>
+            </ul>
+
+            <h2>Best Time To Visit</h2>
+
+            <p id="bestTime">Information coming soon.</p>
+
+        </div>
+
+
+        <!-- Quick Information -->
+        <aside class="details-sidebar">
+
+            <h3>Destination Information</h3>
+
+            <p><strong>Location:</strong></p>
+            <p id="sidebarLocation">-</p>
+
+            <p><strong>Category:</strong></p>
+            <p id="sidebarCategory">-</p>
+
+            <p><strong>Estimated Budget:</strong></p>
+            <p id="placeBudget">-</p>
+
+            <button onclick="planVisit()">
+                Plan Your Visit
+            </button>
+
+            <a href="destinations.html" class="back-link">
+                ← Back to Destinations
+            </a>
+
+        </aside>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <h2>DAGA</h2>
+        <p>Discover Around Go Again</p>
+        <p>Explore Local. Travel Better.</p>
+        <p class="copyright">© 2026 DAGA. All Rights Reserved.</p>
+    </footer>
+
+
+    <script src="destination-details.js"></script>
+
+</body>
+</html>

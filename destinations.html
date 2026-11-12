@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAGA | Explore Destinations</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="brand">
+            <h1>DAGA</h1>
+            <p>Discover Around Go Again</p>
+        </div>
+
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="destinations.html" class="active">Destinations</a>
+            <a href="home.html#services">Services</a>
+            <a href="home.html#about">About</a>
+            <a href="my-trips.html">My Trips</a>
+            <a href="profile.html">Profile</a>
+            <a href="bookings.html">Bookings</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="#" class="profile-btn">My Profile</a>
+            <a href="index.html" class="logout-btn">Logout</a>
+        </div>
+    </header>
+
+
+    <!-- Page Heading -->
+    <section class="destination-hero">
+        <h2>Explore Amazing Destinations</h2>
+        <p>Discover beautiful places, hidden gems and local experiences.</p>
+    </section>
+
+
+    <!-- Search and Filter -->
+    <section class="destination-search">
+
+        <input type="text" id="placeSearch"
+               placeholder="Search destinations...">
+
+        <select id="locationFilter">
+            <option value="all">All Locations</option>
+            <option value="dakshina kannada">Dakshina Kannada</option>
+            <option value="udupi">Udupi</option>
+            <option value="kodagu">Kodagu</option>
+        </select>
+
+        <select id="categoryFilter">
+            <option value="all">All Categories</option>
+            <option value="beach">Beach</option>
+            <option value="nature">Nature</option>
+            <option value="religious">Religious</option>
+            <option value="waterfall">Waterfall</option>
+        </select>
+
+        <button type="button" onclick="filterDestinations()">Search</button>
+
+    </section>
+
+
+    <!-- Destination Cards -->
+    <section class="explore-destinations">
+
+        <div class="destination-grid" id="destinationGrid">
+
+            <div class="place-card"
+                 data-location="dakshina kannada"
+                 data-category="beach">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600"
+                     alt="Beach">
+                <div class="place-details">
+                    <span class="place-category">Beach</span>
+                    <h3>Panambur Beach</h3>
+                    <p>Location: Mangaluru, Dakshina Kannada</p>
+                    <p>Enjoy beautiful coastal views and beach activities.</p>
+                    <button onclick="openDestination('Panambur Beach')">
+    Explore More
+</button>
+                </div>
+            </div>
+
+
+            <div class="place-card"
+                 data-location="dakshina kannada"
+                 data-category="religious">
+                <img src="https://images.unsplash.com/photo-1548013146-72479768bada?w=600"
+                     alt="Temple">
+                <div class="place-details">
+                    <span class="place-category">Religious</span>
+                    <h3>Kukke Subramanya</h3>
+                    <p>Location: Subramanya, Dakshina Kannada</p>
+                    <p>Visit a famous temple surrounded by scenic nature.</p>
+                    <button onclick="openDestination('Kukke Subramanya')">
+                        Explore More
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="place-card"
+                 data-location="udupi"
+                 data-category="beach">
+                <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600"
+                     alt="Beach">
+                <div class="place-details">
+                    <span class="place-category">Beach</span>
+                    <h3>Malpe Beach</h3>
+                    <p>Location: Udupi</p>
+                    <p>Experience coastal beauty and water activities.</p>
+                    <button onclick="openDestination('Malpe Beach')">
+                        Explore More
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="place-card"
+                 data-location="kodagu"
+                 data-category="nature">
+                <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=600"
+                     alt="Forest">
+                <div class="place-details">
+                    <span class="place-category">Nature</span>
+                    <h3>Coorg</h3>
+                    <p>Location: Kodagu</p>
+                    <p>Discover green landscapes and coffee plantations.</p>
+                    <button onclick="openDestination('Coorg')">
+                        Explore More
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="place-card"
+                 data-location="dakshina kannada"
+                 data-category="waterfall">
+                <img src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=600"
+                     alt="Waterfall">
+                <div class="place-details">
+                    <span class="place-category">Waterfall</span>
+                    <h3>Bandaje Falls</h3>
+                    <p>Location: Dakshina Kannada</p>
+                    <p>Explore a beautiful waterfall surrounded by greenery.</p>
+                    <button onclick="openDestination('Bandaje Falls')">
+                        Explore More
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="place-card"
+                 data-location="dakshina kannada"
+                 data-category="nature">
+                <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=600"
+                     alt="Mountain">
+                <div class="place-details">
+                    <span class="place-category">Nature</span>
+                    <h3>Charmadi Ghat</h3>
+                    <p>Location: Dakshina Kannada</p>
+                    <p>Enjoy mountain roads and breathtaking green views.</p>
+                    <button onclick="openDestination('Charmadi Ghat')">
+                        Explore More
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <p id="noResults" class="no-results">
+            No destinations found.
+        </p>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <h2>DAGA</h2>
+        <p>Discover Around Go Again</p>
+        <p>Explore Local. Travel Better.</p>
+        <p class="copyright">© 2026 DAGA. All Rights Reserved.</p>
+    </footer>
+
+
+    <script src="destinations.js"></script>
+</body>
+</html>

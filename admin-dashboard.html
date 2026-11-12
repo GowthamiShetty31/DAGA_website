@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | DAGA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="admin-header">
+        <h1>DAGA Admin</h1>
+        <nav>
+            <a href="admin-dashboard.html">Dashboard</a>
+            <a href="#tourists">Tourists</a>
+            <a href="#businesses">Businesses</a>
+            <a href="home.html">Visit Website</a>
+        </nav>
+    </header>
+
+    <section class="admin-hero">
+        <h2>Admin Dashboard</h2>
+        <p>Manage and monitor the DAGA tourism platform.</p>
+    </section>
+
+    <main class="admin-container">
+
+        <section class="admin-stats">
+            <div class="admin-stat-card">
+                <h3 id="touristCount">0</h3>
+                <p>Registered Tourists</p>
+            </div>
+
+            <div class="admin-stat-card">
+                <h3 id="businessCount">0</h3>
+                <p>Registered Businesses</p>
+            </div>
+
+            <div class="admin-stat-card">
+                <h3 id="pendingCount">0</h3>
+                <p>Pending Verification</p>
+            </div>
+        </section>
+
+        <section id="tourists" class="admin-section">
+            <h2>Tourist Management</h2>
+            <div id="touristList" class="admin-list">
+                <p>No tourist accounts found.</p>
+            </div>
+        </section>
+
+        <section id="businesses" class="admin-section">
+            <h2>Business Verification</h2>
+            <p class="admin-note">
+                Review registered businesses and approve or reject their listings.
+            </p>
+
+            <div id="businessList" class="admin-list">
+                <p>No business registrations found.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="admin-dashboard.js"></script>
+</body>
+</html>

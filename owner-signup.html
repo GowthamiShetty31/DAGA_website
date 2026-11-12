@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Your Business | DAGA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="owner-signup-container">
+
+        <div class="owner-signup-box">
+
+            <h1>DAGA</h1>
+            <h2>Register Your Business</h2>
+            <p>Showcase your local business and connect with travellers.</p>
+
+            <form id="ownerSignupForm">
+
+                <label for="ownerName">Owner Name</label>
+                <input type="text" id="ownerName"
+                    placeholder="Enter your full name" required>
+
+                <label for="businessName">Business Name</label>
+                <input type="text" id="businessName"
+                    placeholder="Enter your business name" required>
+
+                <label for="ownerEmail">Business Email</label>
+                <input type="email" id="ownerEmail"
+                    placeholder="Enter your email" required>
+
+                <label for="ownerPhone">Contact Number</label>
+                <input type="tel" id="ownerPhone"
+                    placeholder="Enter 10-digit phone number"
+                    pattern="[0-9]{10}" required>
+
+                <label for="businessCategory">Business Category</label>
+                <select id="businessCategory" required>
+                    <option value="">Select Category</option>
+                    <option value="Homestay">Homestay</option>
+                    <option value="Tour Guide">Tour Guide</option>
+                    <option value="Food Experience">Food Experience</option>
+                    <option value="Handicrafts">Handicrafts</option>
+                    <option value="Adventure">Adventure Activities</option>
+                    <option value="Cultural Activities">Cultural Activities</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="businessLocation">Business Location</label>
+                <input type="text" id="businessLocation"
+                    placeholder="Example: Puttur, Dakshina Kannada" required>
+
+                <label for="businessDescription">Business Description</label>
+                <textarea id="businessDescription"
+                    placeholder="Describe your business and services"
+                    rows="4" required></textarea>
+
+                <label for="ownerPassword">Create Password</label>
+                <input type="password" id="ownerPassword"
+                    placeholder="Minimum 6 characters"
+                    minlength="6" required>
+
+                <label for="confirmOwnerPassword">Confirm Password</label>
+                <input type="password" id="confirmOwnerPassword"
+                    placeholder="Re-enter your password" required>
+
+                <button type="submit">Register Business</button>
+
+            </form>
+
+            <p id="ownerSignupMessage"></p>
+
+            <p>
+                Already registered?
+                <a href="business-login.html">Login here</a>
+            </p>
+
+            <a href="home.html">← Back to Home</a>
+
+        </div>
+    </div>
+
+    <script src="owner-signup.js"></script>
+</body>
+</html>
