@@ -17,6 +17,7 @@
             <a href="#services">My Services</a>
             <a href="#requests">Booking Requests</a>
             <a href="home.html">Visit Website</a>
+            <button class="business-logout-btn" onclick="businessLogout()">Logout</button>
         </nav>
     </header>
 
@@ -55,13 +56,11 @@
             <h2>My Business</h2>
 
             <div class="business-info-card">
-                <h3 id="dashboardBusinessName">Your Business</h3>
-                <p><strong>Location:</strong> <span id="dashboardLocation">Not added</span></p>
-                <p><strong>Category:</strong> <span id="dashboardCategory">Not added</span></p>
-                <p><strong>Contact:</strong> <span id="dashboardEmail">Not added</span></p>
-                <p><strong>Status:</strong> <span class="business-active">Active</span></p>
-
-                <button onclick="editBusiness()">Edit Business Details</button>
+                <h3>Manage Your Services</h3>
+                <p>Add, edit or remove the services offered by your business.</p>
+                <a href="business-services.html">
+                <button type="button">Manage Services</button>
+                </a>
             </div>
         </section>
 

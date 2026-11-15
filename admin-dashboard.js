@@ -119,3 +119,12 @@ function loadAdminDashboard() {
 if (sessionStorage.getItem("dagaAdminLoggedIn") === "true") {
     loadAdminDashboard();
 }
+
+function adminLogout() {
+    const confirmLogout = confirm("Are you sure you want to logout?");
+
+    if (confirmLogout) {
+        sessionStorage.removeItem("dagaAdminLoggedIn");
+        window.location.replace("admin-login.html");
+    }
+}

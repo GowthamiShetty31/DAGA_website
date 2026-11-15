@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Services | DAGA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="business-dashboard-header">
+    <h1>DAGA</h1>
+    <nav>
+        <a href="business-dashboard.html">Dashboard</a>
+        <a href="business-services.html">Manage Services</a>
+        <a href="home.html">Visit Website</a>
+        <button class="business-logout-btn" onclick="businessLogout()">Logout</button>
+    </nav>
+</header>
+
+<section class="business-dashboard-hero">
+    <h2>Manage Your Services</h2>
+    <p>Add and manage the experiences you offer to travellers.</p>
+</section>
+
+<main class="service-management-container">
+
+    <section class="service-form-card">
+        <h2 id="serviceFormTitle">Add a New Service</h2>
+
+        <form id="serviceForm">
+
+            <label for="serviceName">Service Name</label>
+            <input type="text" id="serviceName"
+                placeholder="Example: Traditional Food Experience" required>
+
+            <label for="serviceCategory">Category</label>
+            <select id="serviceCategory" required>
+                <option value="">Select Category</option>
+                <option value="Accommodation">Accommodation</option>
+                <option value="Food Experience">Food Experience</option>
+                <option value="Tour Guide">Tour Guide</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Handicrafts">Handicrafts</option>
+                <option value="Cultural Activities">Cultural Activities</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="serviceDescription">Description</label>
+            <textarea id="serviceDescription" rows="4"
+                placeholder="Describe your service..." required></textarea>
+
+            <label for="servicePrice">Price (₹)</label>
+            <input type="number" id="servicePrice"
+                min="0" step="1" placeholder="Enter price" required>
+
+            <label for="serviceUnit">Price Unit</label>
+            <select id="serviceUnit" required>
+                <option value="per person">Per person</option>
+                <option value="per day">Per day</option>
+                <option value="per booking">Per booking</option>
+                <option value="per item">Per item</option>
+            </select>
+
+            <button type="submit" id="serviceSubmitButton">
+                Add Service
+            </button>
+
+            <button type="button" id="cancelEditButton"
+                class="cancel-edit-btn" hidden>
+                Cancel Edit
+            </button>
+
+        </form>
+
+        <p id="serviceMessage" aria-live="polite"></p>
+    </section>
+
+    <section class="managed-services-section">
+        <h2>Your Listed Services</h2>
+        <p>Services you add here will be saved in this browser.</p>
+
+        <div id="managedServicesList" class="managed-services-grid">
+        </div>
+    </section>
+
+</main>
+
+<script src="business-services.js"></script>
+</body>
+</html>

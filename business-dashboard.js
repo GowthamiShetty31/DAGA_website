@@ -49,3 +49,12 @@ function updateRequest(status) {
         alert("Booking request rejected.");
     }
 }
+
+function businessLogout() {
+    const confirmLogout = confirm("Are you sure you want to logout?");
+
+    if (confirmLogout) {
+        localStorage.removeItem("dagaLoggedInOwner");
+        window.location.replace("business-login.html");
+    }
+}

@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAGA | Local Services</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <div class="brand">
+            <h1>DAGA</h1>
+            <p>Discover Around Go Again</p>
+        </div>
+
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="destinations.html">Destinations</a>
+            <a href="local-services.html" class="active">Local Services</a>
+            <a href="trip-planner.html">Trip Planner</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="profile.html" class="profile-btn">Profile</a>
+            <a href="index.html" class="logout-btn">Logout</a>
+        </div>
+
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="services-hero">
+
+        <h2>Discover Local Experiences</h2>
+
+        <p>
+            Explore authentic local services and connect
+            with the people who make Dakshina Kannada special.
+        </p>
+
+    </section>
+
+
+    <!-- Search and Filter -->
+    <section class="service-filter">
+
+        <input
+            type="text"
+            id="serviceSearch"
+            placeholder="Search services..."
+        >
+
+        <select id="serviceCategory">
+            <option value="all">All Categories</option>
+            <option value="homestay">Homestays</option>
+            <option value="guide">Tour Guides</option>
+            <option value="food">Local Food</option>
+            <option value="handicraft">Handicrafts</option>
+            <option value="adventure">Adventure</option>
+        </select>
+
+        <select id="serviceLocation">
+            <option value="all">All Locations</option>
+            <option value="puttur">Puttur</option>
+            <option value="mangalore">Mangaluru</option>
+            <option value="sullia">Sullia</option>
+            <option value="belthangady">Belthangady</option>
+            <option value="bantwal">Bantwal</option>
+        </select>
+
+        <button type="button" id="searchServiceBtn">
+            Search
+        </button>
+
+    </section>
+
+
+    <!-- Services -->
+    <section class="services-section">
+
+        <div class="services-grid" id="servicesGrid">
+
+            <!-- Homestay -->
+            <div class="service-card"
+                 data-category="homestay"
+                 data-location="puttur">
+
+                <img
+                    src="https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?w=800"
+                    alt="Homestay">
+
+                <div class="service-info">
+
+                    <span>Homestay</span>
+
+                    <h3>Traditional Nature Homestay</h3>
+
+                    <p>
+                        Experience peaceful surroundings,
+                        local hospitality and traditional living
+                        in Puttur.
+                    </p>
+
+                    <p class="service-price">Starting from ₹1,500 / night</p>
+
+                    <button onclick="showServiceDetails('Traditional Nature Homestay')">
+                        View Details
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- Tour Guide -->
+            <div class="service-card"
+                 data-category="guide"
+                 data-location="mangalore">
+
+                <img
+                    src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=800"
+                    alt="Tour guide">
+
+                <div class="service-info">
+
+                    <span>Tour Guide</span>
+
+                    <h3>Local Heritage Guide</h3>
+
+                    <p>
+                        Discover local culture, heritage,
+                        traditions and interesting stories
+                        with a local guide.
+                    </p>
+
+                    <p class="service-price">Starting from ₹800 / trip</p>
+
+                    <button onclick="showServiceDetails('Local Heritage Guide')">
+                        View Details
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- Local Food -->
+            <div class="service-card"
+                 data-category="food"
+                 data-location="sullia">
+
+                <img
+                    src="https://images.unsplash.com/photo-1547592180-85f173990554?w=800"
+                    alt="Traditional food">
+
+                <div class="service-info">
+
+                    <span>Local Food</span>
+
+                    <h3>Traditional Coastal Cuisine</h3>
+
+                    <p>
+                        Explore authentic coastal dishes
+                        and traditional flavours of
+                        Dakshina Kannada.
+                    </p>
+
+                    <p class="service-price">Starting from ₹250 / person</p>
+
+                    <button onclick="showServiceDetails('Traditional Coastal Cuisine')">
+                        View Details
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- Handicrafts -->
+            <div class="service-card"
+                 data-category="handicraft"
+                 data-location="bantwal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=800"
+                    alt="Handicrafts">
+
+                <div class="service-info">
+
+                    <span>Handicrafts</span>
+
+                    <h3>Traditional Local Crafts</h3>
+
+                    <p>
+                        Explore handmade products,
+                        traditional crafts and locally
+                        created souvenirs.
+                    </p>
+
+                    <p class="service-price">Starting from ₹200</p>
+
+                    <button onclick="showServiceDetails('Traditional Local Crafts')">
+                        View Details
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- Adventure -->
+            <div class="service-card"
+                 data-category="adventure"
+                 data-location="belthangady">
+
+                <img
+                    src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=800"
+                    alt="Nature adventure">
+
+                <div class="service-info">
+
+                    <span>Adventure</span>
+
+                    <h3>Nature Exploration</h3>
+
+                    <p>
+                        Enjoy nature-based experiences
+                        and explore the scenic landscapes
+                        of the region.
+                    </p>
+
+                    <p class="service-price">Starting from ₹500 / person</p>
+
+                    <button onclick="showServiceDetails('Nature Exploration')">
+                        View Details
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- Homestay 2 -->
+            <div class="service-card"
+                 data-category="homestay"
+                 data-location="sullia">
+
+                <img
+                    src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=800"
+                    alt="Countryside stay">
+
+                <div class="service-info">
+
+                    <span>Homestay</span>
+
+                    <h3>Countryside Family Stay</h3>
+
+                    <p>
+                        Enjoy a relaxing countryside
+                        experience with local food
+                        and warm hospitality.
+                    </p>
+
+                    <p class="service-price">Starting from ₹1,200 / night</p>
+
+                    <button onclick="showServiceDetails('Countryside Family Stay')">
+                        View Details
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="no-services" id="noServices">
+            <h3>No services found!</h3>
+            <p>Try another search or category.</p>
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <h2>DAGA</h2>
+
+        <p>Discover Around Go Again</p>
+
+        <p>Explore Local. Travel Better.</p>
+
+        <p class="copyright">
+            © 2026 DAGA. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="local-services.js"></script>
+
+</body>
+</html>
