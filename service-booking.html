@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Service | DAGA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="brand">DAGA</div>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="bookings.html">My Bookings</a>
+        <a href="tourist-dashboard.html">Dashboard</a>
+<a href="wishlist.html">Wishlist</a>
+<a href="notifications.html">Notifications</a>
+<a href="reviews.html">Reviews</a>
+<a href="local-guides.html">Local Guides</a>
+<a href="local-events.html">Local Events</a>
+<a href="contact.html">Contact</a>
+<a href="about.html">About</a>
+<a href="faq.html">FAQ</a>
+    </nav>
+</header>
+
+<main class="service-booking-container">
+    <div class="service-booking-card">
+        <h2>Request a Booking</h2>
+
+        <div class="booking-service-summary">
+            <h3 id="bookingServiceName">Selected Service</h3>
+            <p id="bookingBusinessName"></p>
+            <p id="bookingServicePrice"></p>
+        </div>
+
+        <form id="serviceBookingForm">
+
+            <label for="touristName">Your Name</label>
+            <input type="text" id="touristName" required>
+
+            <label for="touristEmail">Email Address</label>
+            <input type="email" id="touristEmail" required>
+
+            <label for="touristPhone">Phone Number</label>
+            <input type="tel" id="touristPhone"
+                pattern="[0-9]{10}" placeholder="10-digit phone number" required>
+
+            <label for="bookingDate">Preferred Date</label>
+            <input type="date" id="bookingDate" required>
+
+            <label for="bookingGuests">Number of People</label>
+            <input type="number" id="bookingGuests"
+                min="1" max="50" value="1" required>
+
+            <label for="bookingMessage">Message to Business Owner</label>
+            <textarea id="bookingMessage" rows="4"
+                placeholder="Any special requests?"></textarea>
+
+            <button type="submit">Submit Booking Request</button>
+        </form>
+
+        <p id="bookingFormMessage" aria-live="polite"></p>
+        <a href="services.html">← Back to Services</a>
+    </div>
+</main>
+
+<script src="service-booking.js"></script>
+</body>
+</html>

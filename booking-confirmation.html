@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation | DAGA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="brand">DAGA</div>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="bookings.html">My Bookings</a>
+        <a href="tourist-dashboard.html">Dashboard</a>
+<a href="wishlist.html">Wishlist</a>
+<a href="notifications.html">Notifications</a>
+<a href="reviews.html">Reviews</a>
+<a href="local-guides.html">Local Guides</a>
+<a href="local-events.html">Local Events</a>
+<a href="contact.html">Contact</a>
+<a href="about.html">About</a>
+<a href="faq.html">FAQ</a>
+    </nav>
+</header>
+
+<main class="confirmation-container">
+    <div class="confirmation-card">
+        <div class="confirmation-icon">✓</div>
+        <h2>Booking Request Submitted!</h2>
+        <p>Your request has been sent to the business owner.</p>
+
+        <div class="confirmation-details">
+            <p><strong>Booking ID:</strong> <span id="confirmId"></span></p>
+            <p><strong>Service:</strong> <span id="confirmService"></span></p>
+            <p><strong>Business:</strong> <span id="confirmBusiness"></span></p>
+            <p><strong>Date:</strong> <span id="confirmDate"></span></p>
+            <p><strong>People:</strong> <span id="confirmGuests"></span></p>
+            <p><strong>Status:</strong> <span id="confirmStatus">Pending</span></p>
+        </div>
+
+        <p class="confirmation-note">
+            Your booking is not confirmed yet. Wait for the business owner
+            to review your request.
+        </p>
+
+        <a href="services.html">Explore More Services</a>
+        <a href="bookings.html">View My Bookings</a>
+    </div>
+</main>
+
+<script src="booking-confirmation.js"></script>
+</body>
+</html>

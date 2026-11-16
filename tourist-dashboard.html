@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAGA | Tourist Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="brand"><h1>DAGA</h1><p>Discover Around Go Again</p></div>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="services.html">Services</a>
+        <a href="planner.html">Trip Planner</a>
+        <a href="my-trips.html">My Trips</a>
+        <a href="bookings.html">Bookings</a>
+        <a href="tourist-dashboard.html">Dashboard</a>
+<a href="wishlist.html">Wishlist</a>
+<a href="notifications.html">Notifications</a>
+<a href="reviews.html">Reviews</a>
+<a href="local-guides.html">Local Guides</a>
+<a href="local-events.html">Local Events</a>
+<a href="contact.html">Contact</a>
+<a href="about.html">About</a>
+<a href="faq.html">FAQ</a>
+    </nav>
+    <a class="profile-btn" href="profile.html">Profile</a>
+</header>
+
+<section class="extra-hero">
+    <h1>Tourist Dashboard</h1>
+    <p>Manage your travel activities in one place.</p>
+</section>
+
+<main class="extra-container">
+    <div class="extra-card">
+        <h2 id="touristWelcome">Welcome to DAGA!</h2>
+        <p id="touristEmail">Add your details in your profile.</p>
+    </div>
+
+    <div class="extra-stats">
+        <div class="extra-stat"><h2 id="tripCount">0</h2><p>Saved Trips</p></div>
+        <div class="extra-stat"><h2 id="bookingCount">0</h2><p>Booking Requests</p></div>
+        <div class="extra-stat"><h2 id="wishlistCount">0</h2><p>Wishlist Items</p></div>
+        <div class="extra-stat"><h2 id="notificationCount">0</h2><p>Notifications</p></div>
+    </div>
+
+    <h2 class="extra-heading">Quick Access</h2>
+    <div class="extra-grid">
+        <a class="extra-card extra-link" href="destinations.html">Explore Destinations</a>
+        <a class="extra-card extra-link" href="planner.html">Plan a Trip</a>
+        <a class="extra-card extra-link" href="wishlist.html">My Wishlist</a>
+        <a class="extra-card extra-link" href="notifications.html">Notifications</a>
+        <a class="extra-card extra-link" href="reviews.html">Reviews</a>
+        <a class="extra-card extra-link" href="bookings.html">My Bookings</a>
+    </div>
+
+    <h2 class="extra-heading">Recent Trips</h2>
+    <div id="dashboardTrips" class="extra-list"></div>
+</main>
+<script src="tourist-dashboard.js"></script>
+</body>
+</html>

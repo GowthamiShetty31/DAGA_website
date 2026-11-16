@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Requests | DAGA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="business-dashboard-header">
+    <h1>DAGA</h1>
+    <nav>
+        <a href="business-dashboard.html">Dashboard</a>
+        <a href="business-services.html">My Services</a>
+        <a href="owner-bookings.html">Booking Requests</a>
+        <a href="home.html">Visit Website</a>
+        <a href="tourist-dashboard.html">Dashboard</a>
+<a href="wishlist.html">Wishlist</a>
+<a href="notifications.html">Notifications</a>
+<a href="reviews.html">Reviews</a>
+<a href="local-guides.html">Local Guides</a>
+<a href="local-events.html">Local Events</a>
+<a href="contact.html">Contact</a>
+<a href="about.html">About</a>
+<a href="faq.html">FAQ</a>
+        <button class="business-logout-btn" onclick="businessLogout()">Logout</button>
+    </nav>
+</header>
+
+<section class="business-dashboard-hero">
+    <h2>Booking Requests</h2>
+    <p>Review and manage requests received from tourists.</p>
+</section>
+
+<main class="service-management-container">
+
+    <div class="owner-booking-summary">
+        <div>
+            <h3 id="ownerTotalBookings">0</h3>
+            <p>Total Requests</p>
+        </div>
+        <div>
+            <h3 id="ownerPendingBookings">0</h3>
+            <p>Pending</p>
+        </div>
+        <div>
+            <h3 id="ownerAcceptedBookings">0</h3>
+            <p>Accepted</p>
+        </div>
+    </div>
+
+    <div class="owner-booking-filter">
+        <label for="ownerBookingFilter">Filter requests:</label>
+        <select id="ownerBookingFilter">
+            <option value="All">All Requests</option>
+            <option value="Pending">Pending</option>
+            <option value="Accepted">Accepted</option>
+            <option value="Rejected">Rejected</option>
+        </select>
+    </div>
+
+    <div id="ownerBookingsList" class="managed-services-grid">
+    </div>
+
+</main>
+
+<script src="owner-bookings.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAGA | Business Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="brand"><h1>DAGA</h1><p>Business Portal</p></div>
+    <nav>
+        <a href="business-dashboard.html">Dashboard</a>
+        <a href="business-services.html">My Services</a>
+        <a href="owner-bookings.html">Bookings</a>
+        <a href="business-profile.html">Business Profile</a>
+    </nav>
+    <button onclick="businessLogout()">Logout</button>
+</header>
+
+<section class="extra-hero">
+    <h1>Business Profile</h1>
+    <p>Manage your registered business information.</p>
+</section>
+
+<main class="extra-container">
+    <div class="extra-card">
+        <form id="businessProfileForm">
+            <label>Owner Name</label>
+            <input id="ownerName" required>
+
+            <label>Business Name</label>
+            <input id="businessName" required>
+
+            <label>Email</label>
+            <input id="businessEmail" type="email" readonly>
+
+            <label>Phone</label>
+            <input id="businessPhone" type="tel" required>
+
+            <label>Category</label>
+            <select id="businessCategory" required>
+                <option value="">Select category</option>
+                <option>Homestay</option>
+                <option>Tour Guide</option>
+                <option>Food and Restaurant</option>
+                <option>Adventure</option>
+                <option>Handicrafts</option>
+                <option>Cultural Experience</option>
+                <option>Other</option>
+            </select>
+
+            <label>Location</label>
+            <input id="businessLocation" required>
+
+            <label>Description</label>
+            <textarea id="businessDescription" rows="5"></textarea>
+
+            <button type="submit">Save Profile</button>
+        </form>
+        <p id="profileMessage"></p>
+    </div>
+</main>
+
+<script src="business-profile.js"></script>
+</body>
+</html>

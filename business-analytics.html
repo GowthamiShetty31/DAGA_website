@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAGA | Business Analytics</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="brand"><h1>DAGA</h1><p>Business Portal</p></div>
+    <nav>
+        <a href="business-dashboard.html">Dashboard</a>
+        <a href="business-services.html">Services</a>
+        <a href="owner-bookings.html">Bookings</a>
+        <a href="business-profile.html">Profile</a>
+    </nav>
+    <button onclick="businessLogout()">Logout</button>
+</header>
+
+<section class="extra-hero">
+    <h1>Business Analytics</h1>
+    <p>Understand your business activity on DAGA.</p>
+</section>
+
+<main class="extra-container">
+    <div class="extra-stats">
+        <div class="extra-stat"><h2 id="analyticsServices">0</h2><p>My Services</p></div>
+        <div class="extra-stat"><h2 id="analyticsBookings">0</h2><p>Total Requests</p></div>
+        <div class="extra-stat"><h2 id="analyticsPending">0</h2><p>Pending Requests</p></div>
+        <div class="extra-stat"><h2 id="analyticsAccepted">0</h2><p>Accepted Requests</p></div>
+        <div class="extra-stat"><h2 id="analyticsReviews">0</h2><p>Reviews</p></div>
+    </div>
+
+    <div class="extra-card">
+        <h2>Booking Summary</h2>
+        <div id="analyticsSummary"></div>
+        <p class="trip-note">Figures are based on data saved in this browser prototype.</p>
+    </div>
+</main>
+
+<script src="business-analytics.js"></script>
+</body>
+</html>

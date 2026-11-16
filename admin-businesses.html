@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAGA | Manage Businesses</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="brand"><h1>DAGA ADMIN</h1><p>Portal Management</p></div>
+    <nav>
+        <a href="admin-dashboard.html">Dashboard</a>
+        <a href="admin-users.html">Users</a>
+        <a href="admin-services.html">Services</a>
+        <a href="admin-reports.html">Reports</a>
+        <a href="admin-users.html">Manage Users</a>
+<a href="admin-businesses.html">Manage Businesses</a>
+<a href="admin-services.html">Manage Services</a>
+<a href="admin-messages.html">Messages</a>
+<a href="admin-settings.html">Settings</a>
+    </nav>
+    <button onclick="adminLogout()">Logout</button>
+</header>
+
+<section class="extra-hero">
+    <h1>Business Verification</h1>
+    <p>Review and manage registered tourism businesses.</p>
+</section>
+
+<main class="extra-container">
+    <div class="extra-toolbar">
+        <button onclick="displayBusinesses('All')">All</button>
+        <button onclick="displayBusinesses('Pending')">Pending</button>
+        <button onclick="displayBusinesses('Approved')">Approved</button>
+        <button onclick="displayBusinesses('Rejected')">Rejected</button>
+    </div>
+    <div id="adminBusinessList" class="extra-list"></div>
+</main>
+
+<script src="admin-businesses.js"></script>
+</body>
+</html>

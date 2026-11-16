@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Details | DAGA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="brand">DAGA</div>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="bookings.html">My Bookings</a>
+        <a href="tourist-dashboard.html">Dashboard</a>
+<a href="wishlist.html">Wishlist</a>
+<a href="notifications.html">Notifications</a>
+<a href="reviews.html">Reviews</a>
+<a href="local-guides.html">Local Guides</a>
+<a href="local-events.html">Local Events</a>
+<a href="contact.html">Contact</a>
+<a href="about.html">About</a>
+<a href="faq.html">FAQ</a>
+    </nav>
+</header>
+
+<main class="service-details-container">
+    <div class="service-details-card">
+        <h2 id="detailName">Service Details</h2>
+        <p id="detailDescription"></p>
+
+        <div class="service-detail-information">
+            <p><strong>Category:</strong> <span id="detailCategory"></span></p>
+            <p><strong>Business:</strong> <span id="detailBusiness"></span></p>
+            <p><strong>Location:</strong> <span id="detailLocation"></span></p>
+            <p><strong>Contact:</strong> <span id="detailContact"></span></p>
+            <p><strong>Price:</strong> ₹<span id="detailPrice"></span></p>
+            <p><strong>Price Unit:</strong> <span id="detailUnit"></span></p>
+        </div>
+
+        <p id="detailMessage"></p>
+
+        <button id="bookServiceButton">Book This Service</button>
+        <a href="services.html" class="service-back-link">Back to Services</a>
+        <button onclick="saveToWishlist('Destination', 'Kukke Subramanya',
+'destination-details.html?place=Kukke%20Subramanya')">
+    Add to Wishlist
+</button>
+    </div>
+</main>
+
+<script src="service-details.js"></script>
+</body>
+</html>

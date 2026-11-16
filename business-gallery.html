@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAGA | Business Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="brand"><h1>DAGA</h1><p>Business Portal</p></div>
+    <nav>
+        <a href="business-dashboard.html">Dashboard</a>
+        <a href="business-services.html">Services</a>
+        <a href="owner-bookings.html">Bookings</a>
+        <a href="business-profile.html">Profile</a>
+    </nav>
+    <button onclick="businessLogout()">Logout</button>
+</header>
+
+<section class="extra-hero">
+    <h1>Business Gallery</h1>
+    <p>Add image links to showcase your business.</p>
+</section>
+
+<main class="extra-container">
+    <div class="extra-card">
+        <form id="galleryForm">
+            <label>Image URL</label>
+            <input type="url" id="galleryUrl" placeholder="Paste an image URL" required>
+
+            <label>Image Description</label>
+            <input type="text" id="galleryCaption" placeholder="Describe the image" required>
+
+            <button type="submit">Add Image</button>
+        </form>
+        <p id="galleryMessage"></p>
+    </div>
+
+    <h2 class="extra-heading">My Gallery</h2>
+    <div id="galleryItems" class="extra-grid"></div>
+</main>
+
+<script src="business-gallery.js"></script>
+</body>
+</html>

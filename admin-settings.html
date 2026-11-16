@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAGA | Admin Settings</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="brand"><h1>DAGA ADMIN</h1><p>Portal Management</p></div>
+    <nav>
+        <a href="admin-dashboard.html">Dashboard</a>
+        <a href="admin-users.html">Users</a>
+        <a href="admin-businesses.html">Businesses</a>
+        <a href="admin-reports.html">Reports</a>
+    </nav>
+    <button onclick="adminLogout()">Logout</button>
+</header>
+
+<section class="extra-hero">
+    <h1>Admin Settings</h1>
+    <p>Manage basic portal preferences.</p>
+</section>
+
+<main class="extra-container">
+    <div class="extra-card">
+        <form id="settingsForm">
+            <label>Portal Name</label>
+            <input id="portalName" required>
+
+            <label>Portal Tagline</label>
+            <input id="portalTagline" required>
+
+            <label>Support Email</label>
+            <input id="supportEmail" type="email" required>
+
+            <label>Default Region</label>
+            <input id="defaultRegion" required>
+
+            <button type="submit">Save Settings</button>
+        </form>
+        <p id="settingsMessage"></p>
+    </div>
+
+    <div class="extra-card">
+        <h2>Data Tools</h2>
+        <p>Download a simple JSON backup of portal data saved in this browser.</p>
+        <button onclick="downloadBackup()">Download Data Backup</button>
+    </div>
+</main>
+
+<script src="admin-settings.js"></script>
+</body>
+</html>
