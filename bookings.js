@@ -1,45 +1,27 @@
-// Sample booking data for demonstration
-const sampleBookings = [
-    {
-        id: 1,
-        service: "Traditional Nature Homestay",
-        location: "Dakshina Kannada",
-        date: "2026-12-15",
-        people: 2,
-        amount: 2500,
-        status: "Pending"
-    },
-    {
-        id: 2,
-        service: "Local Heritage Guide",
-        location: "Kukke Subramanya",
-        date: "2026-12-20",
-        people: 4,
-        amount: 1500,
-        status: "Confirmed"
-    },
-    {
-        id: 3,
-        service: "Nature Trekking Experience",
-        location: "Bandaje Falls",
-        date: "2026-12-25",
-        people: 3,
-        amount: 1800,
-        status: "Cancelled"
-    }
-];
-
-// Load saved bookings or initialize demo data
-let bookings = JSON.parse(localStorage.getItem("dagaBookings"));
-
-if (bookings === null) {
-    bookings = sampleBookings;
-    localStorage.setItem("dagaBookings", JSON.stringify(bookings));
-}
 
 const bookingsContainer = document.getElementById("bookingsContainer");
+const statusFilter = document.getElementById("statusFilter");
 
-// Display bookings
+const loggedInUser = JSON.parse(
+    localStorage.getItem("dagaLoggedInUser")
+);
+
+function getTouristBookings() {
+    const allBookings = JSON.parse(
+        localStorage.getItem("dagaBookings")
+    ) || [];
+
+    if (!loggedInUser || !loggedInUser.email) {
+        return [];
+    }
+
+    return allBookings.filter(function(booking) {
+        return booking.touristEmail &&
+            booking.touristEmail.toLowerCase() ===
+            loggedInUser.email.toLowerCase();
+    });
+}
+
 function displayBookings(list) {
     bookingsContainer.innerHTML = "";
 
@@ -47,7 +29,7 @@ function displayBookings(list) {
         bookingsContainer.innerHTML = `
             <div class="empty-bookings">
                 <h3>No bookings found</h3>
-                <p>Your bookings will appear here.</p>
+                <p>Your booking requests will appear here.</p>
             </div>
         `;
         return;
@@ -58,27 +40,34 @@ function displayBookings(list) {
         card.className = "booking-card";
 
         const title = document.createElement("h3");
-        title.textContent = booking.service;
+        title.textContent =
+            booking.serviceName || booking.service || "Service";
 
-        const location = document.createElement("p");
-        location.textContent = "Location: " + booking.location;
+        const details = [
+            "Location: " + (booking.location || booking.businessName || "Not available"),
+            "Date: " + (booking.date || "Not available"),
+            "Travellers: " + (booking.guests || booking.people || "Not available"),
+            "Amount: ₹" + (booking.price || booking.amount || 0)
+        ];
 
-        const date = document.createElement("p");
-        date.textContent = "Date: " + booking.date;
+        card.appendChild(title);
 
-        const people = document.createElement("p");
-        people.textContent = "Travellers: " + booking.people;
-
-        const amount = document.createElement("p");
-        amount.textContent = "Amount: ₹" + booking.amount;
+        details.forEach(function(detail) {
+            const paragraph = document.createElement("p");
+            paragraph.textContent = detail;
+            card.appendChild(paragraph);
+        });
 
         const status = document.createElement("span");
-        status.className = "booking-status status-" + booking.status;
+        status.className = "booking-status status-" +
+            String(booking.status).toLowerCase();
         status.textContent = booking.status;
 
-        card.append(title, location, date, people, amount, status);
+        card.appendChild(status);
 
-        if (booking.status !== "Cancelled") {
+        if (booking.status === "Pending" ||
+            booking.status === "Accepted") {
+
             const cancelButton = document.createElement("button");
             cancelButton.textContent = "Cancel Booking";
 
@@ -93,12 +82,11 @@ function displayBookings(list) {
     });
 }
 
-// Filter bookings by status
 function filterBookings() {
-    const selectedStatus =
-        document.getElementById("statusFilter").value;
+    const bookings = getTouristBookings();
+    const selectedStatus = statusFilter.value;
 
-    if (selectedStatus === "all") {
+    if (selectedStatus === "all" || selectedStatus === "All") {
         displayBookings(bookings);
     } else {
         const filtered = bookings.filter(function(booking) {
@@ -109,28 +97,40 @@ function filterBookings() {
     }
 }
 
-// Cancel a booking
 function cancelBooking(id) {
-    const confirmCancel = confirm(
-        "Are you sure you want to cancel this booking?"
-    );
-
-    if (!confirmCancel) {
+    if (!confirm("Are you sure you want to cancel this booking?")) {
         return;
     }
 
-    bookings = bookings.map(function(booking) {
-        if (booking.id === id) {
-            return { ...booking, status: "Cancelled" };
-        }
+    const allBookings = JSON.parse(
+        localStorage.getItem("dagaBookings")
+    ) || [];
 
-        return booking;
+    const booking = allBookings.find(function(item) {
+        return String(item.id) === String(id) &&
+            item.touristEmail &&
+            loggedInUser &&
+            item.touristEmail.toLowerCase() ===
+            loggedInUser.email.toLowerCase();
     });
 
-    localStorage.setItem("dagaBookings", JSON.stringify(bookings));
+    if (!booking ||
+        (booking.status !== "Pending" &&
+         booking.status !== "Accepted")) {
+        return;
+    }
+
+    booking.status = "Cancelled";
+
+    localStorage.setItem(
+        "dagaBookings",
+        JSON.stringify(allBookings)
+    );
 
     filterBookings();
 }
 
-// Display bookings when page loads
-displayBookings(bookings);
+if (bookingsContainer && statusFilter) {
+    statusFilter.addEventListener("change", filterBookings);
+    filterBookings();
+}
