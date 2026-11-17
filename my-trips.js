@@ -1,8 +1,12 @@
+
+// DAGA - My Saved Trips
+
 const tripsContainer = document.getElementById("tripsContainer");
 
-// Get saved trips from browser storage
 function displayTrips() {
-    const savedTrips = JSON.parse(localStorage.getItem("dagaTrips")) || [];
+    const savedTrips = JSON.parse(
+        localStorage.getItem("dagaTrips")
+    ) || [];
 
     tripsContainer.innerHTML = "";
 
@@ -19,7 +23,7 @@ function displayTrips() {
         return;
     }
 
-    savedTrips.forEach((trip, index) => {
+    savedTrips.forEach(function(trip, index) {
         const card = document.createElement("div");
         card.className = "saved-trip-card";
 
@@ -27,7 +31,8 @@ function displayTrips() {
         title.textContent = trip.location || "My Trip";
 
         const interest = document.createElement("p");
-        interest.textContent = "Interest: " + (trip.interest || "Not specified");
+        interest.textContent = "Interest: " +
+            (trip.interest || "Not specified");
 
         const days = document.createElement("p");
         days.textContent = "Duration: " + (trip.days || 1) + " day(s)";
@@ -36,29 +41,61 @@ function displayTrips() {
         people.textContent = "Travellers: " + (trip.people || 1);
 
         const budget = document.createElement("p");
-        budget.textContent = "Budget: ₹" + (trip.budget || 0);
+        budget.textContent = "Budget: ₹" +
+            (trip.budget || trip.amount || 0);
+
+        card.append(title, interest, days, people, budget);
+
+        if (Array.isArray(trip.itinerary)) {
+            const placesHeading = document.createElement("h4");
+            placesHeading.textContent = "Suggested Itinerary";
+            card.appendChild(placesHeading);
+
+            trip.itinerary.forEach(function(item) {
+                const place = document.createElement("p");
+                place.textContent =
+                    "Day " + item.day + ": " + item.place;
+                card.appendChild(place);
+            });
+        }
+
+        if (trip.createdAt) {
+            const created = document.createElement("p");
+            created.textContent = "Created: " + trip.createdAt;
+            card.appendChild(created);
+        }
 
         const removeButton = document.createElement("button");
         removeButton.textContent = "Remove Trip";
-        removeButton.addEventListener("click", function () {
+
+        removeButton.addEventListener("click", function() {
             deleteTrip(index);
         });
 
-        card.append(title, interest, days, people, budget, removeButton);
+        card.appendChild(removeButton);
         tripsContainer.appendChild(card);
     });
 }
 
-// Delete a saved trip
 function deleteTrip(index) {
-    const savedTrips = JSON.parse(localStorage.getItem("dagaTrips")) || [];
+    if (!confirm("Are you sure you want to remove this trip?")) {
+        return;
+    }
+
+    const savedTrips = JSON.parse(
+        localStorage.getItem("dagaTrips")
+    ) || [];
 
     savedTrips.splice(index, 1);
 
-    localStorage.setItem("dagaTrips", JSON.stringify(savedTrips));
+    localStorage.setItem(
+        "dagaTrips",
+        JSON.stringify(savedTrips)
+    );
 
     displayTrips();
 }
 
-// Display trips when page loads
-displayTrips();
+if (tripsContainer) {
+    displayTrips();
+}

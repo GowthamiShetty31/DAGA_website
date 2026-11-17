@@ -40,15 +40,16 @@ ownerSignupForm.addEventListener("submit", function(event) {
     }
 
     const newOwner = {
-        ownerName: ownerName,
-        businessName: businessName,
-        email: email,
-        phone: phone,
-        category: category,
-        location: location,
-        description: description,
-        password: password
-    };
+    ownerName: ownerName,
+    businessName: businessName,
+    email: email,
+    phone: phone,
+    category: category,
+    location: location,
+    description: description,
+    password: password,
+    status: "Pending"
+};
 
     owners.push(newOwner);
 
