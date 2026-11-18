@@ -3321,3 +3321,20 @@ footer p {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+/* SAVE GENERATED TRIP BUTTON */
+
+.trip-results button {
+    display: inline-block;
+    padding: 12px 22px;
+    margin-top: 15px;
+    background: #0c6b4f;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.trip-results button:hover {
+    background: #064d3a;
+}

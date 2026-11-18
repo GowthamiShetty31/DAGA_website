@@ -39,12 +39,13 @@
         </div>
 
         <div class="booking-filters">
-            <select id="statusFilter" onchange="filterBookings()">
-                <option value="all">All Bookings</option>
-                <option value="Pending">Pending</option>
-                <option value="Confirmed">Confirmed</option>
-                <option value="Cancelled">Cancelled</option>
-            </select>
+            <select id="statusFilter">
+    <option value="all">All Bookings</option>
+    <option value="Pending">Pending</option>
+    <option value="Accepted">Accepted</option>
+    <option value="Rejected">Rejected</option>
+    <option value="Cancelled">Cancelled</option>
+</select>
         </div>
 
         <div id="bookingsContainer" class="bookings-grid"></div>

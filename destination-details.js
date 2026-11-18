@@ -55,6 +55,23 @@ const destinations = {
         bestTime: "October to February",
         budget: "₹500 - ₹1,500 per person"
     }
+    "Kudremukh": {
+    location: "Chikkamagaluru",
+    category: "Nature",
+    description: "Kudremukh is known for its green mountain landscapes, scenic views and rich biodiversity.",
+    activities: ["Nature exploration", "Scenic views", "Photography"],
+    bestTime: "October to February",
+    budget: "₹1,000 - ₹2,500 per person"
+},
+
+"Western Ghats": {
+    location: "Karnataka",
+    category: "Nature",
+    description: "The Western Ghats are known for their mountains, forests, biodiversity and scenic landscapes.",
+    activities: ["Nature exploration", "Scenic drives", "Photography"],
+    bestTime: "October to February",
+    budget: "₹500 - ₹2,000 per person"
+}
 
 };
 

@@ -12,50 +12,53 @@ if (!loggedInUser) {
         localStorage.getItem("dagaProfile")
     ) || {};
 
-    const profile = savedProfiles[loggedInUser.email] || loggedInUser;
+    const profile = savedProfiles[loggedInUser.email] || {};
 
-    if (document.getElementById("profileName")) {
-        document.getElementById("profileName").value = profile.name || "";
-    }
+    document.getElementById("fullName").value =
+        profile.name || loggedInUser.name || "";
 
-    if (document.getElementById("profileEmail")) {
-        document.getElementById("profileEmail").value = loggedInUser.email;
-    }
+    document.getElementById("profileEmail").value =
+        loggedInUser.email || "";
 
-    if (document.getElementById("profilePhone")) {
-        document.getElementById("profilePhone").value = profile.phone || "";
-    }
+    document.getElementById("phone").value =
+        profile.phone || loggedInUser.phone || "";
+
+    document.getElementById("homeLocation").value =
+        profile.homeLocation || "";
+
+    document.getElementById("travelPreference").value =
+        profile.travelPreference || "";
 }
 
-if (profileForm) {
-    profileForm.addEventListener("submit", function(event) {
-        event.preventDefault();
+profileForm.addEventListener("submit", function(event) {
+    event.preventDefault();
 
-        if (!loggedInUser) return;
+    if (!loggedInUser) return;
 
-        const name = document.getElementById("profileName").value.trim();
-        const phone = document.getElementById("profilePhone").value.trim();
+    const profiles = JSON.parse(
+        localStorage.getItem("dagaProfile")
+    ) || {};
 
-        const profiles = JSON.parse(
-            localStorage.getItem("dagaProfile")
-        ) || {};
+    const updatedProfile = {
+        name: document.getElementById("fullName").value.trim(),
+        email: loggedInUser.email,
+        phone: document.getElementById("phone").value.trim(),
+        homeLocation: document.getElementById("homeLocation").value.trim(),
+        travelPreference: document.getElementById("travelPreference").value
+    };
 
-        profiles[loggedInUser.email] = {
-            name,
-            email: loggedInUser.email,
-            phone
-        };
+    profiles[loggedInUser.email] = updatedProfile;
 
-        localStorage.setItem("dagaProfile", JSON.stringify(profiles));
+    localStorage.setItem("dagaProfile", JSON.stringify(profiles));
 
-        loggedInUser.name = name;
-        loggedInUser.phone = phone;
+    loggedInUser.name = updatedProfile.name;
+    loggedInUser.phone = updatedProfile.phone;
 
-        localStorage.setItem(
-            "dagaLoggedInUser",
-            JSON.stringify(loggedInUser)
-        );
+    localStorage.setItem(
+        "dagaLoggedInUser",
+        JSON.stringify(loggedInUser)
+    );
 
-        alert("Profile updated successfully.");
-    });
-}
+    document.getElementById("profileMessage").textContent =
+        "Profile updated successfully.";
+});

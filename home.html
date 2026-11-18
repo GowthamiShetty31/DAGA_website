@@ -50,30 +50,28 @@
 
     <!-- Search Section -->
     <section class="search-section">
+    <h2>Find Your Next Experience</h2>
+
+    <div class="search-box">
+        <input
+            type="text"
+            id="homeSearch"
+            placeholder="Where do you want to go?"
+        >
+
+        <select id="homeCategory">
+            <option value="">Select Category</option>
+            <option value="Homestays">Homestays</option>
+            <option value="Tourist Places">Tourist Places</option>
+            <option value="Local Food">Local Food</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Cultural Experiences">Cultural Experiences</option>
+            <option value="Local Guides">Local Guides</option>
+        </select>
+
         <button type="button" onclick="searchPlaces()">Search</button>
-
-        <h2>Find Your Next Experience</h2>
-
-        <div class="search-box">
-
-            <input type="text" placeholder="Where do you want to go?">
-
-            <select>
-                <option value="">Select Category</option>
-                <option>Homestays</option>
-                <option>Tourist Places</option>
-                <option>Local Food</option>
-                <option>Adventure</option>
-                <option>Cultural Experiences</option>
-                <option>Local Guides</option>
-            </select>
-
-            <button type="button">Search</button>
-
-        </div>
-
-    </section>
-
+    </div>
+</section>
 
     <!-- Categories Section -->
     <section class="categories" id="services">
@@ -137,7 +135,7 @@
                 <div class="destination-info">
                     <h3>Kudremukh</h3>
                     <p>Explore scenic mountains and green landscapes.</p>
-                    <a href="#">Explore More →</a>
+                    <a href="destination-details.html?place=Kudremukh">Explore More →</a>
                 </div>
             </div>
 
@@ -146,7 +144,7 @@
                 <div class="destination-info">
                     <h3>Malpe Beach</h3>
                     <p>Enjoy beautiful beaches and coastal experiences.</p>
-                    <a href="#">Explore More →</a>
+                    <a href="destination-details.html?place=Malpe%20Beach">Explore More →</a>
                 </div>
             </div>
 
@@ -155,7 +153,7 @@
                 <div class="destination-info">
                     <h3>Western Ghats</h3>
                     <p>Experience nature, forests and biodiversity.</p>
-                    <a href="#">Explore More →</a>
+                    <a href="destination-details.html?place=Western%20Ghats">Explore More →</a>
                 </div>
             </div>
 
@@ -192,7 +190,6 @@
         <p class="copyright">© 2026 DAGA. All Rights Reserved.</p>
     </footer>
 <script src="home.js"></script>
-<button onclick="touristLogout()">Logout</button>
 
 </body>
 </html>

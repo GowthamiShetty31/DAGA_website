@@ -4,6 +4,25 @@
 const tripForm = document.getElementById("tripForm");
 
 let generatedTrip = null;
+// Preselect location when arriving from destination details
+const requestedLocation = new URLSearchParams(window.location.search).get("location");
+
+if (requestedLocation) {
+    const locationSelect = document.getElementById("location");
+
+    const locationMap = {
+        "Panambur Beach": "dakshina",
+        "Kukke Subramanya": "dakshina",
+        "Bandaje Falls": "dakshina",
+        "Charmadi Ghat": "dakshina",
+        "Western Ghats": "dakshina",
+        "Malpe Beach": "udupi",
+        "Kudremukh": "udupi",
+        "Coorg": "kodagu"
+    };
+
+    locationSelect.value = locationMap[requestedLocation] || "";
+}
 
 if (tripForm) {
     tripForm.addEventListener("submit", function(event) {

@@ -1,21 +1,27 @@
-// DAGA Home Page JavaScript
+// DAGA Home Page
 
-// Search functionality
 function searchPlaces() {
-    const searchInput = document.querySelector(".search-box input").value;
-    const category = document.querySelector(".search-box select").value;
+    const searchText = document.getElementById("homeSearch").value.trim();
+    const category = document.getElementById("homeCategory").value;
 
-    if (searchInput.trim() === "" && category === "") {
-        alert("Please enter a destination or select a category.");
-    } else {
-        alert("Search functionality will be connected soon!");
+    if (searchText === "" && category === "") {
+        alert("Enter a destination or select a category.");
+        return;
     }
+
+    const params = new URLSearchParams();
+
+    if (searchText) {
+        params.set("search", searchText);
+    }
+
+    if (category) {
+        params.set("category", category);
+    }
+
+    window.location.href = "destinations.html?" + params.toString();
 }
 
-// Trip Planner
-function openTripPlanner() {
-    alert("Smart Trip Planner will be available soon!");
-}
 function touristLogout() {
     localStorage.removeItem("dagaLoggedInUser");
     window.location.href = "index.html";
