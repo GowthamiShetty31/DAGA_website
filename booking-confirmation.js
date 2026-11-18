@@ -1,22 +1,28 @@
+const params = new URLSearchParams(window.location.search);
+const bookingId = params.get("id");
 
-const confirmationParams = new URLSearchParams(window.location.search);
-const bookingId = confirmationParams.get("id");
+const bookings = JSON.parse(
+    localStorage.getItem("dagaBookings")
+) || [];
 
-const allBookings = JSON.parse(localStorage.getItem("dagaBookings")) || [];
+const booking = bookings.find(item =>
+    String(item.id) === String(bookingId)
+);
 
-const booking = allBookings.find(function(item) {
-    return item.id === bookingId;
-});
+const container = document.getElementById("confirmationDetails");
 
-if (booking) {
-    document.getElementById("confirmId").textContent = booking.id;
-    document.getElementById("confirmService").textContent = booking.serviceName;
-    document.getElementById("confirmBusiness").textContent = booking.businessName;
-    document.getElementById("confirmDate").textContent = booking.date;
-    document.getElementById("confirmGuests").textContent = booking.guests;
-    document.getElementById("confirmStatus").textContent = booking.status;
-} else {
-    document.querySelector(".confirmation-card").innerHTML =
-        "<h2>Booking Not Found</h2><p>Please check your booking details.</p>" +
-        '<a href="services.html">Return to Services</a>';
+if (booking && container) {
+    container.innerHTML = `
+        <h2>Booking Request Submitted!</h2>
+        <p><strong>Booking ID:</strong> ${booking.id}</p>
+        <p><strong>Service:</strong> ${booking.serviceName}</p>
+        <p><strong>Business:</strong> ${booking.businessName}</p>
+        <p><strong>Date:</strong> ${booking.date}</p>
+        <p><strong>Guests:</strong> ${booking.guests}</p>
+        <p><strong>Status:</strong> ${booking.status}</p>
+        <p>Your request is awaiting business approval.</p>
+        <a href="bookings.html">View My Bookings</a>
+    `;
+} else if (container) {
+    container.textContent = "Booking details could not be found.";
 }

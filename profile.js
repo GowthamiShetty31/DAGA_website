@@ -1,34 +1,61 @@
 const profileForm = document.getElementById("profileForm");
 
-// Load previously saved profile details
-function loadProfile() {
-    const profile = JSON.parse(localStorage.getItem("dagaProfile")) || {};
+const loggedInUser = JSON.parse(
+    localStorage.getItem("dagaLoggedInUser")
+);
 
-    document.getElementById("fullName").value = profile.name || "";
-    document.getElementById("profileEmail").value = profile.email || "";
-    document.getElementById("phone").value = profile.phone || "";
-    document.getElementById("homeLocation").value = profile.location || "";
-    document.getElementById("travelPreference").value =
-        profile.preference || "";
+if (!loggedInUser) {
+    alert("Please login first.");
+    window.location.href = "index.html";
+} else {
+    const savedProfiles = JSON.parse(
+        localStorage.getItem("dagaProfile")
+    ) || {};
+
+    const profile = savedProfiles[loggedInUser.email] || loggedInUser;
+
+    if (document.getElementById("profileName")) {
+        document.getElementById("profileName").value = profile.name || "";
+    }
+
+    if (document.getElementById("profileEmail")) {
+        document.getElementById("profileEmail").value = loggedInUser.email;
+    }
+
+    if (document.getElementById("profilePhone")) {
+        document.getElementById("profilePhone").value = profile.phone || "";
+    }
 }
 
-// Save profile details
-profileForm.addEventListener("submit", function(event) {
-    event.preventDefault();
+if (profileForm) {
+    profileForm.addEventListener("submit", function(event) {
+        event.preventDefault();
 
-    const profile = {
-        name: document.getElementById("fullName").value.trim(),
-        email: document.getElementById("profileEmail").value.trim(),
-        phone: document.getElementById("phone").value.trim(),
-        location: document.getElementById("homeLocation").value.trim(),
-        preference: document.getElementById("travelPreference").value
-    };
+        if (!loggedInUser) return;
 
-    localStorage.setItem("dagaProfile", JSON.stringify(profile));
+        const name = document.getElementById("profileName").value.trim();
+        const phone = document.getElementById("profilePhone").value.trim();
 
-    document.getElementById("profileMessage").textContent =
-        "Profile saved successfully!";
-});
+        const profiles = JSON.parse(
+            localStorage.getItem("dagaProfile")
+        ) || {};
 
-// Load details when page opens
-loadProfile();
+        profiles[loggedInUser.email] = {
+            name,
+            email: loggedInUser.email,
+            phone
+        };
+
+        localStorage.setItem("dagaProfile", JSON.stringify(profiles));
+
+        loggedInUser.name = name;
+        loggedInUser.phone = phone;
+
+        localStorage.setItem(
+            "dagaLoggedInUser",
+            JSON.stringify(loggedInUser)
+        );
+
+        alert("Profile updated successfully.");
+    });
+}

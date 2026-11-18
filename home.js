@@ -16,3 +16,7 @@ function searchPlaces() {
 function openTripPlanner() {
     alert("Smart Trip Planner will be available soon!");
 }
+function touristLogout() {
+    localStorage.removeItem("dagaLoggedInUser");
+    window.location.href = "index.html";
+}

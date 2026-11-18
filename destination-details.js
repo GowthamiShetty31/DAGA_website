@@ -104,3 +104,14 @@ function openDestination(placeName) {
         "destination-details.html?place=" +
         encodeURIComponent(placeName);
 }
+function planVisit() {
+    const place = new URLSearchParams(window.location.search).get("place");
+
+    if (!place) {
+        alert("Destination not found.");
+        return;
+    }
+
+    window.location.href =
+        "planner.html?location=" + encodeURIComponent(place);
+}

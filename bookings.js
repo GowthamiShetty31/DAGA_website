@@ -22,6 +22,16 @@ function getTouristBookings() {
     });
 }
 
+// Convert booking status into readable text
+function getBookingStatus(status) {
+    if (status === "Pending") return "Waiting for business approval";
+    if (status === "Accepted") return "Booking Accepted";
+    if (status === "Rejected") return "Booking Rejected";
+    if (status === "Cancelled") return "Cancelled";
+
+    return status || "Pending";
+}
+
 function displayBookings(list) {
     bookingsContainer.innerHTML = "";
 
@@ -60,8 +70,9 @@ function displayBookings(list) {
 
         const status = document.createElement("span");
         status.className = "booking-status status-" +
-            String(booking.status).toLowerCase();
-        status.textContent = booking.status;
+            String(booking.status || "Pending").toLowerCase();
+
+        status.textContent = getBookingStatus(booking.status);
 
         card.appendChild(status);
 
