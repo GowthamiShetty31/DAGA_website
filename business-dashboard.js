@@ -1,5 +1,4 @@
 
-// GET LOGGED-IN BUSINESS OWNER
 const owner = JSON.parse(localStorage.getItem("dagaLoggedInOwner"));
 
 if (!owner) {
@@ -19,49 +18,35 @@ if (!owner) {
         owner.email || "Not provided";
 }
 
-// ACCEPT OR REJECT BOOKING REQUEST
+// UPDATE BOOKING STATUS
 function updateRequest(status) {
 
-    const statusElement = document.getElementById("bookingStatus");
-
-    if (!statusElement) {
-        alert("Booking status element not found!");
-        return;
-    }
-
-    if (status === "confirmed") {
-        statusElement.textContent = "Accepted";
-        alert("Booking request accepted successfully!");
-    }
-
-    else if (status === "rejected") {
-        statusElement.textContent = "Rejected";
-        alert("Booking request rejected!");
-    }
-
-    // SAVE STATUS
     localStorage.setItem("dagaBookingStatus", status);
 
-    // DISABLE BUTTONS AFTER RESPONSE
-    document.querySelectorAll(".owner-booking-card button").forEach(button => {
-        button.disabled = true;
-    });
+    displayBookingStatus(status);
 }
 
-// RESTORE PREVIOUS BOOKING STATUS
-const savedStatus = localStorage.getItem("dagaBookingStatus");
+// DISPLAY STATUS AND HIDE BUTTONS
+function displayBookingStatus(status) {
 
-if (savedStatus) {
     const statusElement = document.getElementById("bookingStatus");
+    const actionsElement = document.getElementById("bookingActions");
 
     if (statusElement) {
         statusElement.textContent =
-            savedStatus === "confirmed" ? "Accepted" : "Rejected";
-
-        document.querySelectorAll(".owner-booking-card button").forEach(button => {
-            button.disabled = true;
-        });
+            status === "confirmed" ? "Accepted" : "Rejected";
     }
+
+    if (actionsElement) {
+        actionsElement.style.display = "none";
+    }
+}
+
+// RESTORE SAVED STATUS
+const savedStatus = localStorage.getItem("dagaBookingStatus");
+
+if (savedStatus) {
+    displayBookingStatus(savedStatus);
 }
 
 // LOGOUT
