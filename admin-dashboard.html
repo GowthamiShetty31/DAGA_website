@@ -6,28 +6,230 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard | DAGA</title>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        .admin-header {
+            background: #0c6b4f;
+            color: white;
+            padding: 18px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .admin-header h1 {
+            letter-spacing: 2px;
+        }
+
+        .admin-header nav {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .admin-header nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .admin-header nav a:hover {
+            text-decoration: underline;
+        }
+
+        .admin-logout {
+            background: white;
+            color: #0c6b4f;
+            border: none;
+            padding: 9px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .admin-hero {
+            padding: 35px 6%;
+            background: #d8eee4;
+        }
+
+        .admin-hero h2 {
+            color: #17352c;
+            margin-bottom: 8px;
+        }
+
+        .admin-main {
+            padding: 30px 6%;
+        }
+
+        .admin-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .admin-stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+            border-left: 5px solid #0c6b4f;
+        }
+
+        .admin-stat-card h3 {
+            font-size: 30px;
+            color: #0c6b4f;
+            margin-bottom: 8px;
+        }
+
+        .admin-stat-card p {
+            color: #666;
+        }
+
+        .admin-section {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+            scroll-margin-top: 25px;
+        }
+
+        .admin-section h2 {
+            color: #17352c;
+            margin-bottom: 18px;
+        }
+
+        .admin-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+        }
+
+        .admin-item {
+            border: 1px solid #dce8e2;
+            border-radius: 8px;
+            padding: 18px;
+            background: #fbfdfc;
+        }
+
+        .admin-item h3 {
+            color: #0c6b4f;
+            margin-bottom: 12px;
+        }
+
+        .admin-item p {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.7;
+            overflow-wrap: anywhere;
+        }
+
+        .admin-status {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            background: #fff1d6;
+            color: #8a5b00;
+        }
+
+        .admin-status.approved {
+            background: #dff5e8;
+            color: #176b3a;
+        }
+
+        .admin-status.rejected {
+            background: #fde4e4;
+            color: #a12626;
+        }
+
+        .admin-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .admin-actions button {
+            border: none;
+            padding: 9px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+        }
+
+        .approve-btn {
+            background: #0c6b4f;
+        }
+
+        .reject-btn {
+            background: #c0392b;
+        }
+
+        .admin-actions button:hover {
+            opacity: 0.85;
+        }
+
+        .admin-empty {
+            color: #777;
+            padding: 15px 0;
+            grid-column: 1 / -1;
+        }
+
+        .admin-section:target {
+            outline: 2px solid #0c6b4f;
+        }
+
+        @media (max-width: 600px) {
+            .admin-header {
+                align-items: flex-start;
+            }
+
+            .admin-header nav {
+                gap: 14px;
+            }
+
+            .admin-main {
+                padding: 22px 4%;
+            }
+
+            .admin-section {
+                padding: 18px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
     <header class="admin-header">
         <h1>DAGA Admin</h1>
-            <nav>
-                <a href="admin-dashboard.html">Dashboard</a>
-                <a href="#tourists">Tourists</a>
-                <a href="#businesses">Businesses</a>
-                <a href="home.html">Visit Website</a>
-                <button class="admin-logout-btn" onclick="adminLogout()">Logout</button>
-            </nav>
+
+        <nav>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#tourists">Tourists</a>
+            <a href="#businesses">Businesses</a>
+            <a href="home.html">Visit Website</a>
+            <button class="admin-logout" onclick="adminLogout()">Logout</button>
+        </nav>
     </header>
 
     <section class="admin-hero">
         <h2>Admin Dashboard</h2>
-        <p>Manage and monitor the DAGA tourism platform.</p>
+        <p>Manage tourists, business registrations and platform activity.</p>
     </section>
 
-    <main class="admin-container">
+    <main class="admin-main">
 
-        <section class="admin-stats">
+        <section class="admin-stats" id="dashboard">
+
             <div class="admin-stat-card">
                 <h3 id="touristCount">0</h3>
                 <p>Registered Tourists</p>
@@ -40,37 +242,36 @@
 
             <div class="admin-stat-card">
                 <h3 id="pendingCount">0</h3>
-                <p>Pending Verification</p>
+                <p>Pending Approvals</p>
             </div>
+
+            <div class="admin-stat-card">
+                <h3 id="serviceCount">0</h3>
+                <p>Total Services</p>
+            </div>
+
+            <div class="admin-stat-card">
+                <h3 id="bookingCount">0</h3>
+                <p>Total Bookings</p>
+            </div>
+
         </section>
 
-        <section id="tourists" class="admin-section">
-            <h2>Tourist Management</h2>
-            <div id="touristList" class="admin-list">
-                <p>No tourist accounts found.</p>
-            </div>
+        <section class="admin-section" id="tourists">
+            <h2>Registered Tourists</h2>
+            <div id="touristList" class="admin-list"></div>
         </section>
 
-        <section id="businesses" class="admin-section">
-            <h2>Business Verification</h2>
-            <p class="admin-note">
-                Review registered businesses and approve or reject their listings.
-            </p>
-
-            <div id="businessList" class="admin-list">
-                <p>No business registrations found.</p>
-            </div>
+        <section class="admin-section" id="businesses">
+            <h2>Business Registrations</h2>
+            <p>Review registrations and approve or reject pending businesses.</p>
+            <br>
+            <div id="businessList" class="admin-list"></div>
         </section>
-        <button onclick="updateBusinessStatus('owner@email.com', 'Approved')">
-    Approve
-</button>
-
-<button onclick="updateBusinessStatus('owner@email.com', 'Rejected')">
-    Reject
-</button>
 
     </main>
 
     <script src="admin-dashboard.js"></script>
+
 </body>
 </html>

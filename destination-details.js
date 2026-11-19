@@ -54,7 +54,7 @@ const destinations = {
         activities: ["Scenic drives", "Photography", "Nature exploration"],
         bestTime: "October to February",
         budget: "₹500 - ₹1,500 per person"
-    }
+    },
     "Kudremukh": {
     location: "Chikkamagaluru",
     category: "Nature",
@@ -71,7 +71,7 @@ const destinations = {
     activities: ["Nature exploration", "Scenic drives", "Photography"],
     bestTime: "October to February",
     budget: "₹500 - ₹2,000 per person"
-}
+},
 
 };
 
