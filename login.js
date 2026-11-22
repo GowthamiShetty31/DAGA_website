@@ -2,29 +2,42 @@
 const loginForm = document.getElementById("loginForm");
 
 if (loginForm) {
-    loginForm.addEventListener("submit", function(event) {
+    loginForm.addEventListener("submit", async function(event) {
         event.preventDefault();
 
         const email = document.getElementById("email").value.trim().toLowerCase();
         const password = document.getElementById("password").value;
 
-        const users = JSON.parse(localStorage.getItem("dagaUsers")) || [];
+        try {
+            const response = await fetch("http://127.0.0.1:5000/api/tourist/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
+            });
 
-        const validUser = users.find(function(user) {
-            return user.email.toLowerCase() === email &&
-                   user.password === password;
-        });
+            const data = await response.json();
 
-        if (validUser) {
-            localStorage.setItem("dagaLoggedInUser", JSON.stringify({
-                name: validUser.name,
-                email: validUser.email,
-                phone: validUser.phone
-            }));
+            if (response.ok) {
+                localStorage.setItem(
+                    "dagaLoggedInUser",
+                    JSON.stringify(data.user)
+                );
 
-            window.location.href = "home.html";
-        } else {
-            alert("Invalid email or password. Please sign up first.");
+                alert("Login successful!");
+                window.location.href = "home.html";
+
+            } else {
+                alert(data.message || "Invalid email or password.");
+            }
+
+        } catch (error) {
+            console.error("Login error:", error);
+            alert("Cannot connect to the server. Please start the Flask backend.");
         }
     });
 }
